@@ -1,0 +1,84 @@
+/* 1,2,3 Responsible for the position of the table*/
+/* 1 */
+body, html {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+/* 2 */
+main{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* 3 */
+.outer_table_container {
+    display: flex;
+    justify-content: center;
+    background-color: #f0f0f0;
+}
+
+
+/* Editing outer table style */
+#outer_table {
+    background-color: rgba(255, 255, 224, 0.5);
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+#outer_table_th {
+    border: 1px solid black;
+    word-spacing: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+#outer_table_td {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Adjust the height of the first row */
+#outer_table_tr1{
+    height: 50px;
+}
+/* Adjust the height of the second row */
+#outer_table_tr2 {
+    height: 400px; /* Adjust the height as needed */
+}
+
+
+
+/* Responsible for inner table position */
+.content2 {
+    margin-left: 50px;
+}
+.inner_table_container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Editing inner table style */
+#inner_table {
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 90%;
+}
+
+#inner_table_tr1 {
+    height: 400px;
+}
+
+
+/* Menu */
+.menu {
+    display: flex;
+}
+
+#logo{
+    padding-right: 500px;
+    padding-left: 50px;
+}

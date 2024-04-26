@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producer Screen 1</title>
+    <link rel="stylesheet" href="../css/styling.css" />
+</head>
+<body>
+    <main>
+        <div class="content"></div>
+        <div class="outer_table_container">
+            <!--Outer table-->
+            <table id="outer_table">
+                <tr id="outer_table_tr1">
+                    <th id="outer_table_th">
+                        <nav class="menu">
+                            <div id="logo">
+                                <!--GO BACK TO SCREEN 1-->
+                            </div>
+                            <div>
+                            </div>
+                        </nav>
+                    </th>
+                </tr>
+                <tr id="outer_table_tr2">
+                    <td id="outer_table_td">
+                        <div class="content2">
+                            <header>
+                                <h2 id="header">Producer</h2>
+                            </header>
+                        </div>
+                        <div class="inner_table_container">
+                            <!--Inner table-->
+                            <table id="inner_table">
+                                <!--Row 1-->
+                                <tr class="inner_table_row">
+                                    <th class="col_left"><h2>DJ</h2></th>
+                                    <th><h2>Time</h2></th>
+                                </tr>
+
+
+
+                                <!--DYNAMIC EJS-->
+                                <!-- Loop through DJs and times -->
+                                <% for (let i = 0; i < djData.length; i++) { %>
+                                    <tr class="inner_table_row">
+                                        <td class="col_left"><h3 style="margin-left: 20px;"><%= djData[i].name %></h3></td>
+                                        <td>
+                                           <!-- Go to DJ's screen -->
+                                            <% if (djData[i].name == "Alan Walker") { %>
+                                                <% for (let j = 0; j < djData[i].times.length; j++) { %>
+                                                    <button style="margin-left: 100px;" onclick="alan()"><%= djData[i].times[j] %></button>
+                                                <% } %>
+                                            <% }
+                                            else if (djData[i].name == "Tiesto") { %>
+                                                <% for (let j = 0; j < djData[i].times.length; j++) { %>
+                                                    <button style="margin-left: 100px;" onclick="tiesto()"><%= djData[i].times[j] %></button>
+                                                <% } %>
+                                            <% }
+                                            else if (djData[i].name == "Marshmellow") { %>
+                                                <% for (let j = 0; j < djData[i].times.length; j++) { %>
+                                                    <button style="margin-left: 100px;" onclick="marsh()"><%= djData[i].times[j] %></button>
+                                                <% } %>
+                                            <% } %>
+
+                                        </td>
+                                    </tr>
+                                <% } %>
+                                <!-- End loop -->
+
+
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </main>
+    <!--TO LINK JAVASCRIPT FILE-->
+    <script src="../js/JScript.js"></script>
+</body>
+</html>

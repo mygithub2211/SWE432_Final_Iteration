@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tiesto's Screen</title>
+        <link rel="stylesheet"  href="../css/tiesto.css" />
+
+        <style>
+            #inner_table td {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            ul {
+                margin-right: 40px;
+            }
+
+
+            li {
+                list-style-type: none;
+               
+                width: 100%;           
+            }
+
+            .song-artist {
+                border: 1px solid black;      
+            }
+
+            .x {
+                display: flex;      
+                align-items: stretch;
+                border: 1px solid black;   
+            }     
+            
+            .song-list {
+                height: 200px; /* Set the height to accommodate 5 songs */
+                overflow-y: scroll; /* Add vertical scrollbar */         
+            }
+           
+            .content2 {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+            }
+        </style>
+        <script src="../song_list/song.json"></script> 
+    </head>
+
+    
+    <body>
+        <main>
+            <div class="content"></div>
+           
+            <div class="outer_table_container">
+                <!--Outer table-->
+                <table id="outer_table">
+                    <tr id="outer_table_tr1">
+                        <th id="outer_table_th">  
+                            <nav class="menu">
+                                <div id="logo">
+                                    <!--GO BACK TO SCREEN 1-->
+                                </div>
+                                <div>
+                                </div>
+                            </nav>                      
+                        </th>
+                    </tr>
+
+                    <tr id="outer_table_tr2">
+                        <td id="outer_table_td">
+                            <div class="content2">
+                                <header>
+                                    <h2 id="header">Producer</h2>
+                                </header>
+                                <!--LOGOUT BUTTON-->
+                                <div>
+                                    <button id="log_out" onclick="logOut()">LOGOUT</button>               
+                                </div>
+                            </div>
+                            
+                            <div class="inner_table_container">
+                                <!--Inner table-->
+                                <table id="inner_table">
+                                    <tr id="inner_table_tr1">
+                                        <td>
+                                            <div class="div1">
+                                               
+                                                <form id="search_form">                                                
+                                                    <input type="text" id="search_bar" placeholder="Search...">
+                                                    <button type="submit">search</button>
+                                                </form>
+
+                                            </div>
+
+                                            <div id="search_results"></div>
+
+
+                                            <div class="div2">         
+                                                <ul>
+                                                    <li>
+                                                        <div class="song-artist">
+                                                            <h3>Song - Artist</h3>
+                                                        </div>
+                                                        
+                                                        <!--DYNAMIC EJS-->
+                                                        <!-- Dynamic rendering of Song List -->
+                                                        <div class="song-list">
+                                                            <% for (let i = 0; i < tiesto_songs.length; i++) { %>
+                                                                <div class="x">
+                                                                    <div style="padding-right: 420px;" id="song_name"><%= tiesto_songs[i].name %></div>
+                                                                    <audio src="<%= tiesto_songs[i].src %>" controls id="audio_src"></audio>                                                                 
+                                                                    <button onclick="deleteSong(this.parentNode, <%= JSON.stringify(tiesto_songs[i]) %>)">delete</button>   
+                                                                </div>
+                                                            <% } %>
+                                                        </div>      
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            
+                                        </td>                            
+                                    </tr>                                
+                                </table>
+
+
+                            </div>
+                           
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </main>
+        <!--TO LINK JAVASCRIPT FILE-->
+        <script  src="../js/tiesto.js"></script>
+    </body>
+
+</html>
